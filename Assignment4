@@ -1,0 +1,187 @@
+DIPAK KUMAR PAUL (dipakpaul199@gmail.com)
+
+
+1.	Javascript to calculate user's age, based on DOB, check age eligibility, & provide validation alert A major goal of our recruitment survey is to identify users who are between the ages of 14-24 (target population) and those who are not (not eligible for our study). Currently, we ask users for their date of birth (MM/DD/YYYY) and would like to use JS to:
+● Calculate age, based on the current date
+● Determine if the age is within our target range (14-24)
+● Provide a validation alert to the users AND/OR categorize users using embedded data in the categories of eligible/ineligible based on age.
+
+
+<!DOCTYPE html>
+<html>
+<title>Web Page Design</title>
+<head>
+<script>
+function calculate_age(dob) { 
+    var diff_ms = Date.now() - dob.getTime();
+    var age_dt = new Date(diff_ms); 
+  
+    return Math.abs(age_dt.getUTCFullYear() - 1970);
+}
+
+document.write(calculate_age(new Date(1998, 11, 4)));
+document.write("<br>")
+document.write(calculate_age(new Date(2001, 1, 1)));
+
+</script>
+</head>
+<body>
+</body>
+</html>
+
+
+
+2. Write a merge sort program in JavaScript.
+Sample array : [34,7,23,32,5,62]
+Sample output : [5, 7, 23, 32, 34, 62]
+
+<!DOCTYPE html>
+<html>
+<title>Web Page Design</title>
+<head>
+<script>
+Array.prototype.merge_Sort = function () {
+  if (this.length <= 1) 
+  {
+    return this;
+  }
+
+  var half = parseInt(this.length / 2);
+  var left = this.slice(0, half).merge_Sort();
+  var right = this.slice(half,     this.length).merge_Sort();
+  var merge = function (left, right) 
+  {
+  var arry = [];
+  while (left.length > 0 && right.length > 0)
+  {
+    arry.push((left[0] <= right[0]) ? left.shift() : right.shift());
+  }
+    return arry.concat(left).concat(right);
+  };
+
+  return merge(left, right);
+};
+
+var a = [34,7,23,32,5,62];
+document.write(a.merge_Sort());
+
+</script>
+</head>
+<body>
+</body>
+</html>
+
+
+
+3. Write a JavaScript program to compute the greatest common divisor
+(GCD) of two positive integers.
+
+
+<!DOCTYPE html>
+<html>
+<title>Web Page Design</title>
+<head>
+<script>
+var a = 2154;
+var b = 458;
+var gcd;
+while (a!=b)
+{
+	if (a>b)
+	{
+		a = a -b;
+	}
+	else
+	{
+		b = b - a;
+	}
+}
+gcd = a;
+document.write(gcd);
+</script>
+</head>
+<body>
+</body>
+</html>
+
+
+
+
+4. Write a JavaScript function to get the last element of an array.
+Passing a parameter 'n' will return the last 'n' elements of the array.
+Go to the editor
+Test Data :
+console.log(last([7, 9, 0, -2]));
+console.log(last([7, 9, 0, -2],3));
+console.log(last([7, 9, 0, -2],6));
+Expected Output :
+-2
+[9, 0, -2]
+[7, 9, 0, -2]
+
+
+<!DOCTYPE html>
+<html>
+<title>Web Page Design</title>
+<head>
+<script>
+var last =  function(array, n) {
+  if (array == null) 
+    return void 0;
+  if (n == null) 
+     return array[array.length - 1];
+  return array.slice(Math.max(array.length - n, 0));  
+  };
+
+document.write(last([7, 9, 0, -2]));
+document.write("<br>")
+document.write(last([7, 9, 0, -2],3));
+document.write("<br>")
+document.write(last([7, 9, 0, -2],6));
+</script>
+</head>
+<body>
+</body>
+</html>
+
+
+
+
+5. Write a JavaScript program to remove duplicate items from an array
+(ignore case sensitivity).
+
+
+<!DOCTYPE html>
+<html>
+<title>Web Page Design</title>
+<head>
+<script>
+function removeDuplicates(num) {
+  var x,
+      len=num.length,
+      out=[],
+      obj={};
+ 
+  for (x=0; x<len; x++) {
+    obj[num[x]]=0;
+  }
+  for (x in obj) {
+    out.push(x);
+  }
+  return out;
+}
+var Mynum = [1, 2, 2, 4, 5, 4, 7, 8, 7, 3, 6];
+result = removeDuplicates(Mynum);
+document.write(Mynum);
+document.write("<br>")
+document.write(result);
+
+</script>
+</head>
+<body>
+</body>
+</html>
+
+
+--------------------X-------------------------
+
