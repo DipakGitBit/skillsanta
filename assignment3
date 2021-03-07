@@ -1,0 +1,209 @@
+DIPAK PAUL
+Dipakpaul199@gmail.com
+
+1. Credit Card Validation
+You're starting your own credit card business. You need to come up with a new way to validate credit cards with a simple function called validateCreditCard that returns true or false.
+Here are the rules for a valid number:
+● The number must be 16 digits, all of them must be numbers
+● You must have at least two different digits represented (all of the digits cannot be the same)
+● The final digit must be even
+● The sum of all the digits must be greater than 16
+
+The following credit card numbers are valid:
+● 9999777788880000
+● 6666666666661666
+
+The following credit card numbers are invalid:
+● a92332119c011112 invalid characters
+● 4444444444444444 only one type of number
+● 1111111111111110 sum less than 16
+● 6666666666666661 odd final number
+
+In order to run the function, you'll need to know how to load javascript on an HTML page. From there, you will open your developer console to call the function.
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function validateCreditCard(creditCardNum){
+
+  if(creditCardNum.length !== 16){
+    return false;
+  }
+
+  for(var i = 0; i < creditCardNum.length; i++){
+    var currentNumber = creditCardNum[i];
+
+    currentNumber = Number.parseInt(currentNumber);
+
+    if(!Number.isInteger(currentNumber)){
+      return false;
+    }
+  }
+
+  var obj = {};
+  for(var i = 0; i < creditCardNum.length; i++){
+    obj[creditCardNum[i]] = true;
+  }
+  if(Object.keys(obj).length < 2){
+    return false;
+  }
+
+  if(creditCardNum[creditCardNum.length - 1] % 2 !== 0){
+    return false;
+  }
+
+  var sum = 0;
+  for(var i = 0; i < creditCardNum.length; i++){
+    sum += Number(creditCardNum[i]);
+  }
+  if(sum <= 16){
+    return false;
+  }
+
+  return true;
+};
+
+document.write(validateCreditCard('9999777788880000'));
+document.write("<br>");
+document.write(validateCreditCard('6666666666661666'));
+document.write("<br>");
+document.write(validateCreditCard('a92332119c011112'));
+document.write("<br>");
+document.write(validateCreditCard('4444444444444444'));
+document.write("<br>");
+document.write(validateCreditCard('1211111111111112'));
+
+</script>
+</head>
+<body>
+</body>
+</html>
+
+
+2. Write a JavaScript function to get the difference between two dates in
+days
+Test Data :
+console.log(date_diff_indays('04/02/2014', '11/04/2014'));
+console.log(date_diff_indays('12/02/2014', '11/04/2014'));
+Output :
+216 days
+-28 days
+
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+var date_diff_indays = function(date1, date2) {
+dt1 = new Date(date1);
+dt2 = new Date(date2);
+return Math.floor((Date.UTC(dt2.getFullYear(), dt2.getMonth(), dt2.getDate()) - Date.UTC(dt1.getFullYear(), dt1.getMonth(), dt1.getDate()) ) /(1000 * 60 * 60 * 24));
+}
+document.write(date_diff_indays('04/02/2014', '11/04/2014'));
+document.write("<br>");
+document.write(date_diff_indays('12/02/2014', '11/04/2014'));
+</script>
+</head>
+<body>
+</body>
+</html>
+
+
+
+3. Write a JavaScript program to get the width and height of the window
+(any time the window is resized).
+
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script>
+const windowWidth = window.innerWidth;
+const windowHeight = window.innerHeight;
+document.write(windowWidth);
+document.write(" * ");
+document.write(windowHeight);
+</script>
+</body>
+</html>
+
+
+
+4. Write a JavaScript program to find the Armstrong numbers of 3 digits.
+Go to the editor
+Note: An Armstrong number of three digits is an integer such that the sum of the cubes of its digits is equal to the number itself. For example, 371 is an Armstrong number since 3**3 + 7**3 + 1**3 = 371.
+
+<html>
+<head>
+</head>
+<body>
+<script>
+function three_digit_armstrong_number() 
+{
+ for (var i = 1; i < 10; ++i) 
+ {
+   for (var j = 0; j < 10; ++j) 
+     {
+        for (var k = 0; k < 10; ++k)
+        {
+          var pow = (Math.pow(i,3) + Math.pow(j,3) + Math.pow(k,3));
+          var plus = (i * 100 + j * 10 +  k);
+          if (pow == plus) 
+           {     
+             document.write(pow);
+             document.write("<br>");
+            }
+         }
+       }
+    }
+  }
+three_digit_armstrong_number();
+</script>
+</body>
+</html>
+
+
+
+5. Write a JavaScript function to get the least common multiple (LCM) of two numbers
+Note :
+According to Wikipedia - A common multiple is a number that is a multiple of two or more integers. The common multiples of 3 and 4 are 0, 12, 24, .... The least common multiple (LCM) of two numbers is the smallest number (not zero) that is a multiple of both.
+Test Data :
+console.log(lcm_two_numbers(3,15));
+console.log(lcm_two_numbers(10,15));
+Output :
+15
+30.
+
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+<script>
+function lcm_two_numbers(x, y) {
+   if ((typeof x !== 'number') || (typeof y !== 'number')) 
+    return false;
+  return (!x || !y) ? 0 : Math.abs((x * y) / gcd_two_numbers(x, y));
+}
+
+function gcd_two_numbers(x, y) {
+  x = Math.abs(x);
+  y = Math.abs(y);
+  while(y) {
+    var t = y;
+    y = x % y;
+    x = t;
+  }
+  return x;
+}
+document.write(lcm_two_numbers(3,15));
+document.write("<br>");
+document.write(lcm_two_numbers(10,15));
+</script>
+</body>
+</html>
+
+-------------------X--------------------
